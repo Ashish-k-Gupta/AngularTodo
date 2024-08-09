@@ -1,0 +1,32 @@
+<div class="container">
+  <div *ngIf = "items.length === 0; then noItems else showItems" ></div> 
+
+    <ng-template #noItems>
+      <div>
+        No wishes!
+      </div>
+    </ng-template>
+  
+    
+    <ng-template #showItems>
+      <ul class="wish-list">
+        <li *ngFor="let item of items; index as ii" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="checkbox" 
+            type="checkbox" 
+            [checked]="item.isComplete"
+            [attr.data-index] = "ii"
+            >
+            {{item.wishText}}
+          </label>
+        </div>
+      </li>
+      </ul>
+    </ng-template>
+  
+    <td [colSpan]>H</td>
+
+ 
+
+  </div>
